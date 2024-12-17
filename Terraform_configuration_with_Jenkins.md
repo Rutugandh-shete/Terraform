@@ -74,6 +74,8 @@ Follow the steps below to install Jenkins and its prerequisites:
 
 ## **Jenkins Pipeline Code**
 Add the following Jenkins pipeline script in your `Jenkinsfile` to automate Terraform tasks.
+![image](https://github.com/user-attachments/assets/ec9bb142-f5f9-42a9-b14c-b4595531b794)
+
 
 ```groovy
 pipeline {
@@ -99,4 +101,4 @@ pipeline {
         }
     }
 }
-![image](https://github.com/user-attachments/assets/28d913df-b989-4d74-808b-544fed57c784)
+
