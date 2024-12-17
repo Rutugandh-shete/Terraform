@@ -5,11 +5,12 @@ provider "aws" {
 
 }
 
-resource "aws_s3_bucket" "my_buck" {
-  bucket = "backend-s3-buck"
+resource "aws_instance" "instance" {
+  ami                    = "ami-0866a3c8686eaeeba"
+  instance_type          = "t2.micro"
+  key_name               = "new_key"
   tags = {
-    Name:"tf-buck"
-
+    Name = "Terraform_instance"
   }
-  
 }
+
