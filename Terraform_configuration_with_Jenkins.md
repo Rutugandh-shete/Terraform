@@ -9,13 +9,28 @@ This repository contains a Terraform configuration (`s3.tf`) to deploy AWS resou
 Before running the pipeline, ensure the following tools and configurations are in place:
 
 1. **Jenkins Setup**:
+   - Install Jenkins
+     ````bash
+     sudo apt update -y
+sudo apt install fontconfig openjdk-17-jre -y
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+/etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update -y
+sudo apt-get install jenkins -y
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+````
    - Jenkins is installed and running on your server.
    - Required plugins:
      - [Pipeline](https://plugins.jenkins.io/workflow-aggregator/)
      - [Git](https://plugins.jenkins.io/git/)
      - [AWS CLI](https://plugins.jenkins.io/aws-cli/)
 
-2. **Terraform**:
+3. **Terraform**:
    - Install Terraform on the Jenkins server:
      ```bash
      wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -24,7 +39,7 @@ Before running the pipeline, ensure the following tools and configurations are i
      terraform --version
      ```
 
-3. **AWS CLI**:
+4. **AWS CLI**:
    - Install the AWS CLI:
      ```bash
      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
